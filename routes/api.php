@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('posts', 'PostController@index');
+Route::get('posts', [PostController::class, 'index']);
 Route::group(['prefix' => 'post'], function () {
-    Route::post('add', 'PostController@add');
-    Route::get('edit/{id}', 'PostController@edit');
-    Route::post('update/{id}', 'PostController@update');
-    Route::delete('delete/{id}', 'PostController@delete');
+    Route::post('add', [PostController::class, 'add']);
+    Route::get('edit/{id}', [PostController::class, 'edit']);
+    Route::post('update/{id}', [PostController::class, 'update']);
+    Route::delete('delete/{id}', [PostController::class, 'delete']);
 });
+resouce 
+
+// Route::get('/api/posts', [PostController::class, 'index']);
+// Route::post('/api/post/add', [PostController::class, 'add']);
+
+// Route::get('/api/post/edit/{id}', [PostController::class, 'edit']);
+// Route::post('/api/post/update/{id}', [PostController::class, 'update']);
+// Route::post('/api/post/delete/{id}', [PostController::class, 'delete']);

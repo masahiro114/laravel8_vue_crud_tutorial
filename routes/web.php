@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\API\PostController;
+// use App\Http\Controllers\API\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +22,12 @@ Route::get('{any}', function () {
 })->where('any', '.*');
 
 
-Route::get('/api/posts', [PostController::class, 'index']);
-Route::post('/api/post/add', [PostController::class, 'add']);
+// Route::get('/api/posts', [PostController::class, 'index']);
+// Route::post('/api/post/add', [PostController::class, 'add']);
 
-Route::get('/api/post/edit/{id}', [PostController::class, 'edit']);
-Route::post('/api/post/update/{id}', [PostController::class, 'update']);
-Route::post('/api/post/delete/{id}', [PostController::class, 'delete']);
+// Route::get('/api/post/edit/{id}', [PostController::class, 'edit']);
+// Route::post('/api/post/update/{id}', [PostController::class, 'update']);
+// Route::post('/api/post/delete/{id}', [PostController::class, 'delete']);
 
 
 // Route::get('/api/posts', [App\Http\Controllers\API\PostController::class, 'index']);
