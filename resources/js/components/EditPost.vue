@@ -28,7 +28,7 @@
         },
         created() {
             this.axios
-                .get(`http://laravel8.local:8888/api/post/edit/${this.$route.params.id}`)
+                .get(`http://laravel8.local/api/post/edit/${this.$route.params.id}`)
                 .then((response) => {
                     this.post = response.data;
                     // console.log(response.data);
@@ -37,7 +37,7 @@
         methods: {
             updatePost() {
                 this.axios
-                    .post(`http://laravel8.local:8888/api/post/update/${this.$route.params.id}`, this.post)
+                    .post(`http://laravel8.local/api/post/update/${this.$route.params.id}`, this.post)
                     .then((response) => {
                         this.$router.push({name: 'home'});
                     });

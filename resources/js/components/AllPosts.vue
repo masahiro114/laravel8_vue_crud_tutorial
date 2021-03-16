@@ -1,7 +1,10 @@
 <template>
     <div>
         <h3 class="text-center">All Posts</h3><br/>
- 
+                 <ul>
+           <li><a href="/add/post">Add Post</a></li> 
+        </ul>
+
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -42,7 +45,7 @@
         },
         created() {
             this.axios
-                .get('http://laravel8.local:8888/api/posts')
+                .get('http://laravel8.local/api/posts')
                 .then(response => {
                     this.posts = response.data;
                 });
@@ -50,7 +53,7 @@
         methods: {
             deletePost(id) {
                 this.axios
-                    .delete(`http://laravel8.local:8888/api/post/delete/${id}`)
+                    .delete(`http://laravel8.local/api/post/delete/${id}`)
                     .then(response => {
                         let i = this.posts.map(item => item.id).indexOf(id); // find index of your object
                         this.posts.splice(i, 1)

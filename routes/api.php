@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PostController;
+use App\Http\Controllers\API\BordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,9 @@ Route::group(['prefix' => 'post'], function () {
     Route::post('update/{id}', [PostController::class, 'update']);
     Route::delete('delete/{id}', [PostController::class, 'delete']);
 });
-resouce 
+
+Route::apiResource('bords', BordController::class);
+
 
 // Route::get('/api/posts', [PostController::class, 'index']);
 // Route::post('/api/post/add', [PostController::class, 'add']);

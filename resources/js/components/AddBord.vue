@@ -1,18 +1,14 @@
 <template>
     <div>
-        <h3 class="text-center">Add Post</h3>
+        <h3 class="text-center">Add bord</h3>
         <div class="row">
             <div class="col-md-6">
-                <form @submit.prevent="addPost">
+                <form @submit.prevent="addbord">
                     <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" class="form-control" v-model="post.title">
+                        <label>bord</label>
+                        <input type="text" class="form-control" v-model="bord.bord">
                     </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <input type="text" class="form-control" v-model="post.description">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add Post</button>
+                    <button type="submit" class="btn btn-primary">Add bord</button>
                 </form>
             </div>
         </div>
@@ -23,14 +19,14 @@
     export default {
         data() {
             return {
-                post: {}
+                bord: {}
             }
         },
         methods: {
-            addPost() {
+            addbord() {
  
                 this.axios
-                    .post('http://laravel8.local/api/post/add', this.post)
+                    .post('http://laravel8.local/api/bords', this.bord)
                     .then(response => (
                         this.$router.push({name: 'home'})
                         // console.log(response.data)

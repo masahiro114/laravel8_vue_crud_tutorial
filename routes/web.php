@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-// use App\Http\Controllers\API\PostController;
 
 /*
 |--------------------------------------------------------------------------
