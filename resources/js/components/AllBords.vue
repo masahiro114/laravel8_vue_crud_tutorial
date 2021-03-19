@@ -2,7 +2,7 @@
     <div>
         <h3 class="text-center">All Bords</h3><br/>
                 <ul>
-           <li><a href="/add/bord">Add Bord</a></li> 
+           <li><a href="/bord/add">Add Bord</a></li> 
         </ul>
  
         <table class="table table-bordered">
@@ -23,9 +23,9 @@
                 <td>{{ bord.updated_at }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'editbord', params: { id: bord.id }}" class="btn btn-primary">Edit
+                        <router-link :to="{name: 'editBord', params: { id: bord.id }}" class="btn btn-primary">Edit
                         </router-link>
-                        <button class="btn btn-danger" @click="deletePost(bord.id)">Delete</button>
+                        <button class="btn btn-danger" @click="deleteBord(bord.id)">Delete</button>
                     </div>
                 </td>
             </tr>
@@ -49,9 +49,9 @@
                 });
         },
         methods: {
-            deletePost(id) {
+            deleteBord(id) {
                 this.axios
-                    .delete(`http://laravel8.local/api/bords/delete/${id}`)
+                    .delete(`http://laravel8.local/api/bords/${id}`)
                     .then(response => {
                         let i = this.bords.map(item => item.id).indexOf(id); // find index of your object
                         this.bords.splice(i, 1)

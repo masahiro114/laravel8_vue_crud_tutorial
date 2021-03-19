@@ -24,7 +24,7 @@
         },
         created() {
             this.axios
-                .get(`http://laravel8.local/api/bord/edit/${this.$route.params.id}`)
+                .get(`http://laravel8.local/api/bords/${this.$route.params.id}`)
                 .then((response) => {
                     this.bord = response.data;
                     // console.log(response.data);
@@ -33,7 +33,7 @@
         methods: {
             updatebord() {
                 this.axios
-                    .post(`http://laravel8.local/api/bord/update/${this.$route.params.id}`, this.bord)
+                    .patch(`http://laravel8.local/api/bords/${this.$route.params.id}`, this.bord)
                     .then((response) => {
                         this.$router.push({name: 'home'});
                     });

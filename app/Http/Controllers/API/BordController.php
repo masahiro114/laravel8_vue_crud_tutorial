@@ -61,9 +61,10 @@ class BordController extends Controller
      * @param  \App\Models\Bord  $bord
      * @return \Illuminate\Http\Response
      */
-    public function show(Bord $bord)
+    public function show($id)
     {
-        //
+        $bord = Bord::find($id);
+        return response()->json($bord);
     }
 
     /**
@@ -72,12 +73,12 @@ class BordController extends Controller
      * @param  \App\Models\Bord  $bord
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bord $bord)
-    {
-        $bord = Bord::find($id);
-        return response()->json($bord);
+    // public function edit($bord)
+    // {
+    //     $bord = Bord::find($bord);
+    //     return response()->json($bord);
 
-    }
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -86,7 +87,7 @@ class BordController extends Controller
      * @param  \App\Models\Bord  $bord
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bord $bord)
+    public function update($id, Request $request)
     {
         $bord = Bord::find($id);
         $bord->update($request->all());
@@ -101,8 +102,12 @@ class BordController extends Controller
      * @param  \App\Models\Bord  $bord
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bord $bord)
+    public function destroy($id)
     {
-        //
+        $bord = Bord::find($id);
+        $bord->delete();
+ 
+        return response()->json('The Bord successfully deleted');
+
     }
 }

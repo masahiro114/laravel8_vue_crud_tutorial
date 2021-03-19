@@ -2040,10 +2040,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    deletePost: function deletePost(id) {
+    deleteBord: function deleteBord(id) {
       var _this2 = this;
 
-      this.axios["delete"]("http://laravel8.local/api/bords/delete/".concat(id)).then(function (response) {
+      this.axios["delete"]("http://laravel8.local/api/bords/".concat(id)).then(function (response) {
         var i = _this2.bords.map(function (item) {
           return item.id;
         }).indexOf(id); // find index of your object
@@ -2174,7 +2174,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get("http://laravel8.local/api/bord/edit/".concat(this.$route.params.id)).then(function (response) {
+    this.axios.get("http://laravel8.local/api/bords/".concat(this.$route.params.id)).then(function (response) {
       _this.bord = response.data; // console.log(response.data);
     });
   },
@@ -2182,7 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
     updatebord: function updatebord() {
       var _this2 = this;
 
-      this.axios.post("http://laravel8.local/api/bord/update/".concat(this.$route.params.id), this.bord).then(function (response) {
+      this.axios.patch("http://laravel8.local/api/bords/".concat(this.$route.params.id), this.bord).then(function (response) {
         _this2.$router.push({
           name: 'home'
         });
@@ -2405,23 +2405,23 @@ var routes = [{
   component: _components_AllPosts_vue__WEBPACK_IMPORTED_MODULE_1__.default
 }, {
   name: 'addPost',
-  path: '/add/post',
+  path: '/post/add',
   component: _components_AddPost_vue__WEBPACK_IMPORTED_MODULE_2__.default
 }, {
   name: 'editPost',
-  path: '/edit/post/:id',
+  path: '/post/edit/:id',
   component: _components_EditPost_vue__WEBPACK_IMPORTED_MODULE_3__.default
 }, {
-  name: 'allbords',
+  name: 'allBords',
   path: '/allbords',
   component: _components_AllBords_vue__WEBPACK_IMPORTED_MODULE_4__.default
 }, {
   name: 'addBord',
-  path: '/add/bord',
+  path: '/bords/add',
   component: _components_AddBord_vue__WEBPACK_IMPORTED_MODULE_5__.default
 }, {
-  name: 'editbord',
-  path: '/edit/bord/:id',
+  name: 'editBord',
+  path: '/bords/edit/:id',
   component: _components_EditBord_vue__WEBPACK_IMPORTED_MODULE_6__.default
 }];
 
@@ -20742,7 +20742,7 @@ var render = function() {
                     {
                       staticClass: "btn btn-primary",
                       attrs: {
-                        to: { name: "editbord", params: { id: bord.id } }
+                        to: { name: "editBord", params: { id: bord.id } }
                       }
                     },
                     [_vm._v("Edit\n                    ")]
@@ -20754,7 +20754,7 @@ var render = function() {
                       staticClass: "btn btn-danger",
                       on: {
                         click: function($event) {
-                          return _vm.deletePost(bord.id)
+                          return _vm.deleteBord(bord.id)
                         }
                       }
                     },
@@ -20778,7 +20778,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("ul", [
       _c("li", [
-        _c("a", { attrs: { href: "/add/bord" } }, [_vm._v("Add Bord")])
+        _c("a", { attrs: { href: "/bord/add" } }, [_vm._v("Add Bord")])
       ])
     ])
   },
@@ -20855,7 +20855,9 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "btn btn-primary",
-                      attrs: { to: { name: "edit", params: { id: post.id } } }
+                      attrs: {
+                        to: { name: "editPost", params: { id: post.id } }
+                      }
                     },
                     [_vm._v("Edit\n                    ")]
                   ),
@@ -20890,7 +20892,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("ul", [
       _c("li", [
-        _c("a", { attrs: { href: "/add/post" } }, [_vm._v("Add Post")])
+        _c("a", { attrs: { href: "/post/add" } }, [_vm._v("Add Post")])
       ])
     ])
   },

@@ -2,7 +2,7 @@
     <div>
         <h3 class="text-center">All Posts</h3><br/>
                  <ul>
-           <li><a href="/add/post">Add Post</a></li> 
+           <li><a href="/post/add">Add Post</a></li> 
         </ul>
 
         <table class="table table-bordered">
@@ -25,7 +25,7 @@
                 <td>{{ post.updated_at }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'edit', params: { id: post.id }}" class="btn btn-primary">Edit
+                        <router-link :to="{name: 'editPost', params: { id: post.id }}" class="btn btn-primary">Edit
                         </router-link>
                         <button class="btn btn-danger" @click="deletePost(post.id)">Delete</button>
                     </div>

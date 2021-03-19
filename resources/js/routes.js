@@ -21,27 +21,27 @@ export const routes = [
     },
     {
         name: 'addPost',
-        path: '/add/post',
+        path: '/post/add',
         component: AddPost
     },
     {
         name: 'editPost',
-        path: '/edit/post/:id',
+        path: '/post/edit/:id',
         component: EditPost
     },
     {
-        name: 'allbords',
+        name: 'allBords',
         path: '/allbords',
         component: AllBords
     },
     {
         name: 'addBord',
-        path: '/add/bord',
+        path: '/bords/add',
         component: AddBord
     },
     {
-        name: 'editbord',
-        path: '/edit/bord/:id',
+        name: 'editBord',
+        path: '/bords/edit/:id',
         component: EditBord
     }
 ];
